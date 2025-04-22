@@ -1,0 +1,27 @@
+.hidden {
+    visibility: hidden;
+}
+
+@media only screen and (orientation: landscape) {
+    .landscape {
+        visibility: visible;
+    }
+}
+
+@media only screen and (orientation: portrait) {
+    .portrait {
+        visibility: visible;
+    }
+}
+
+@media only screen and (min-width: 600px) {
+    .widescreen {
+        visibility: visible;
+    }
+}
+
+@media only screen and (max-width: 600px) {
+    .nwidescreen {
+        visibility: visible;
+    }
+}

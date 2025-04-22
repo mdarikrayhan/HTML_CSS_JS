@@ -1,0 +1,116 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>ALL HTML Forum Input Types</title>
+</head>
+<body>
+  <div class="container">
+    <h1>HTML Forum Input Types</h1>
+    <form action="submit.php" method="POST" enctype="multipart/form-data">
+
+
+      <!-- Buttons & Actions -->
+      <fieldset>
+        <legend>Buttons & Actions</legend>
+        <input type="button" id="btn" value="Click Me">
+        <input type="submit" id="submit" value="Submit">
+        <input type="reset" id="reset" value="Reset">
+      </fieldset>
+
+      <!-- Choices -->
+      <fieldset>
+        <legend>Choices</legend>
+        <input type="checkbox" id="bike" name="vehicle1" value="Bike">
+        <label for="bike"> I have a bike</label><br>
+
+        <input type="checkbox" id="car" name="vehicle2" value="Car">
+        <label for="car"> I have a car</label><br>
+
+        <input type="checkbox" id="boat" name="vehicle3" value="Boat">
+        <label for="boat"> I have a boat</label><br>
+
+        <input type="radio" id="male" name="gender" value="male">
+        <label for="male">Male</label><br>
+
+        <input type="radio" id="female" name="gender" value="female">
+        <label for="female">Female</label>
+
+
+      </fieldset>
+
+      <!-- Text Inputs -->
+      <fieldset>
+        <legend>Text Inputs</legend>
+        <label for="email">Email:</label>
+        <input type="email" id="email" name="email"><br>
+
+        <label for="password">Password:</label>
+        <input type="password" id="password" name="password"><br>
+
+        <label for="tel">Telephone:</label>
+        <input type="tel" id="tel" name="phone"><br>
+
+        <label for="url">Website:</label>
+        <input type="url" id="url" name="website"><br>
+
+        <label for="search">Search:</label>
+        <input type="search" id="search" name="search"><br>
+
+        <label for="text">Text:</label>
+        <input type="text" id="text" name="text">
+      </fieldset>
+
+      <!-- Number & Range -->
+      <fieldset>
+        <legend>Number & Range</legend>
+        <label for="number">Number:</label>
+        <input type="number" id="number" name="quantity" min="1" max="10"><br>
+
+        <label for="range">Range:</label>
+        <input type="range" id="range" name="volume" min="0" max="100">
+      </fieldset>
+
+      <!-- Date & Time -->
+      <fieldset>
+        <legend>Date & Time</legend>
+        <label for="date">Date:</label>
+        <input type="date" id="date" name="date"><br>
+
+        <label for="time">Time:</label>
+        <input type="time" id="time" name="time"><br>
+
+        <label for="datetime">DateTime Local:</label>
+        <input type="datetime-local" id="datetime" name="datetime"><br>
+
+        <label for="month">Month:</label>
+        <input type="month" id="month" name="month"><br>
+
+        <label for="week">Week:</label>
+        <input type="week" id="week" name="week">
+      </fieldset>
+
+      <!-- Files & Media -->
+      <fieldset>
+        <legend>Files & Media</legend>
+        <label for="file">Upload File:</label>
+        <input type="file" id="file" name="file"><br>
+
+        <!--This works as submit button that takes image as input-->
+        <input type="image" src="https://www.w3schools.com/html/img_submit.gif" alt="Submit" width="48" height="48">
+
+        <label for="color">Favorite Color:</label>
+        <input type="color" id="color" name="color">
+      </fieldset>
+
+      <!-- Hidden -->
+      <fieldset>
+        <legend>Hidden Field</legend>
+        <input type="hidden" id="hiddenField" name="hiddenField" value="hiddenValue">
+        <p>(Hidden input with value: "hiddenValue")</p>
+      </fieldset>
+
+    </form>
+  </div>
+</body>
+</html>
