@@ -1,6 +1,5 @@
 <?php
-$t = readline();
-$t = (int) $t;
+$t = (int) readline();
 for ($i = 0; $i < $t; $i++) {
     $s = readline();
     $size = strlen($s);
