@@ -11,23 +11,23 @@
   ```
 -->
 <div class="mx-auto max-w-7xl py-6 sm:px-6 lg:px-8">
-  <form>
+  <form method="POST" class="space-y-8 divide-y divide-gray-200">
     <div class="space-y-12">
       <div class="border-b border-gray-900/10 pb-12">
 
         <div class="mt-10 grid grid-cols-1 gap-x-6 gap-y-8 sm:grid-cols-6">
           <div class="sm:col-span-3">
-            <label for="first-name" class="block text-sm/6 font-medium text-gray-900">First name</label>
+            <label for="first_name" class="block text-sm/6 font-medium text-gray-900">First name</label>
             <div class="mt-2">
-              <input type="text" name="first-name" id="first-name" autocomplete="given-name"
+              <input type="text" name="first_name" id="first_name" autocomplete="given-name"
                 class="block w-full rounded-md bg-white px-3 py-1.5 text-base text-gray-900 outline-1 -outline-offset-1 outline-gray-300 placeholder:text-gray-400 focus:outline-2 focus:-outline-offset-2 focus:outline-indigo-600 sm:text-sm/6" />
             </div>
           </div>
 
           <div class="sm:col-span-3">
-            <label for="last-name" class="block text-sm/6 font-medium text-gray-900">Last name</label>
+            <label for="last_name" class="block text-sm/6 font-medium text-gray-900">Last name</label>
             <div class="mt-2">
-              <input type="text" name="last-name" id="last-name" autocomplete="family-name"
+              <input type="text" name="last_name" id="last_name" autocomplete="family-name"
                 class="block w-full rounded-md bg-white px-3 py-1.5 text-base text-gray-900 outline-1 -outline-offset-1 outline-gray-300 placeholder:text-gray-400 focus:outline-2 focus:-outline-offset-2 focus:outline-indigo-600 sm:text-sm/6" />
             </div>
           </div>
@@ -53,7 +53,7 @@
               <input id="password" name="password" type="password" autocomplete="new-password"
                 class="block w-full rounded-md bg-white px-3 py-1.5 text-base text-gray-900 outline-1 -outline-offset-1 outline-gray-300 placeholder:text-gray-400 focus:outline-2 focus:-outline-offset-2 focus:outline-indigo-600 sm:text-sm/6" />
             </div>
-          </div> 
+          </div>
           <!-- Confirm Password -->
           <div class="sm:col-span-3">
             <label for="confirm-password" class="block text-sm/6 font-medium text-gray-900">Confirm Password</label>
@@ -62,8 +62,8 @@
                 class="block w-full rounded-md bg-white px-3 py-1.5 text-base text-gray-900 outline-1 -outline-offset-1 outline-gray-300 placeholder:text-gray-400 focus:outline-2 focus:-outline-offset-2 focus:outline-indigo-600 sm:text-sm/6" />
             </div>
           </div>
-        
-    
+
+
 
 
           <!-- Division selection -->
@@ -197,5 +197,4 @@
       });
     }
   });
-
 </script>
