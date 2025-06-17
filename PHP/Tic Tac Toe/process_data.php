@@ -1,4 +1,34 @@
 <?php
+//MysQL connection
+require 'Database.php';
+
+$config = require('config.php');
+$db = new Database($config['database']);
+/*
+database structure
+id INT AUTO_INCREMENT PRIMARY KEY,
+timestamp datetime DEFAULT CURRENT_TIMESTAMP,
+board JSON NOT NULL,
+gameMode ENUM('Human', 'Computer') DEFAULT Computer,
+result ENUM('Draw', 'X', 'O') DEFAULT Draw
+*/
+
+$query = "select * from tictactoe";
+
+$posts = $db->query($query)->fetchAll();
+
+// foreach ($posts as $post) {
+//     sleep(5);
+//     echo "<h2>{$post['id']}</h2>";
+//     echo "<p>{$post['board']}</p>";
+//     echo "<p>{$post['gameMode']}</p>";
+//     echo "<p>{$post['result']}</p>";
+//     echo "<p>{$post['timestamp']}</p>";
+//     echo "<hr>";
+
+// }
+
+
 $board = $_POST['data'];
 $gameMode = $_POST['gameMode'];
 
@@ -68,6 +98,11 @@ function saveGameState($board, $winner = null)
     );
 }
 
+function redirectToIndex()
+{
+    header("Location: index.php");
+    exit();
+}
 
 function checkWinner()
 {
@@ -146,10 +181,22 @@ function minMax($depth, $isMaximizing)
 }
 
 if ($winner) {
+    //save data to the database
+    $query = "INSERT INTO tictactoe (board, gameMode, result) VALUES (:board, :gameMode, :result)";
+    $params = [
+        ':board' => json_encode($board),
+        ':gameMode' => $gameMode,
+        ':result' => $winner
+    ];
+    $db->submitData($query, $params);
     saveGameState($board, $winner);
+    
+    redirectToIndex();
 } else if ($isDraw) {
     $winner = 'Draw';
     saveGameState($board, $winner);
+    redirectToIndex();
+
 } else {
     //count the number of X's and O's
     $xCount = 0;
@@ -182,9 +229,11 @@ if ($winner) {
         $winner = checkWinner();
         if ($winner) {
             saveGameState($board, $winner);
+            redirectToIndex();
         }
     }
     saveGameState($board);
+    redirectToIndex();
 }
 
 

@@ -132,7 +132,8 @@
 
         <h1 id="winner-message" style="text-align: center; color: green;"></h1>
 
-        <input id="reset" type="reset" value="Reset" style="display: block; margin: 0 auto; padding: 10px 20px; font-size: 1.2em;">
+        <input id="reset" type="reset" value="Reset"
+            style="display: block; margin: 0 auto; padding: 10px 20px; font-size: 1.2em;">
     </form>
 </body>
 
@@ -161,7 +162,7 @@ foreach ($board as $row => $cols) {
 ?>
 
 <script>
-    let currentPlayer = 0,flag = true;
+    let currentPlayer = 0, flag = true;
     //set the winner message if it exists
     fetch('game_data.json').then(response => response.json()).then(data => {
         const winnerMessage = document.getElementById('winner-message');
@@ -227,7 +228,7 @@ foreach ($board as $row => $cols) {
 
     //submit the form when the table data is changed
 
-    document.querySelector('table').addEventListener('click', function () { 
+    document.querySelector('table').addEventListener('click', function () {
         document.getElementById('game-form').submit();
     });
     document.getElementById('reset').addEventListener('click', function () {
