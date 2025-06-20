@@ -4,22 +4,35 @@ $uri = parse_url($_SERVER['REQUEST_URI'])['path'];
 
 $routes = [
     '/' => 'controllers/index.php',
-    '/about' => 'controllers/about.php',
-    '/contact' => 'controllers/contact.php',
     '/login' => 'controllers/login.php',
     '/signup' => 'controllers/signup.php',
-    // '/products/{product_id}' => 'controllers/product.php',
+    '/profile' => 'controllers/profile.php',
+    '/admin/category' => 'controllers/admin/category.php',
+    '/admin/product' => 'controllers/admin/product.php',
+    '/category' => 'controllers/category.php',
+    '/product' => 'controllers/product.php',
 ];
 
-function routeToController($uri, $routes) {
-    if (array_key_exists($uri, $routes)) {
+$actions = [
+    '/signup' => 'actions/signup.action.php',
+    '/signin' => 'actions/signin.action.php',
+    '/logout' => 'actions/logout.action.php',
+];
+
+function routeToController($uri, $routes, $actions)
+{
+    if ($_SERVER['REQUEST_METHOD'] === 'POST' && isset($actions[$uri])) {
+        require $actions[$uri];
+        return;
+    }
+    if (isset($routes[$uri])) {
         require $routes[$uri];
-    } else {
-        abort();
+        return;
     }
 }
 
-function abort($code = 404) {
+function abort($code = 404)
+{
     http_response_code($code);
 
     require "views/{$code}.php";
@@ -27,4 +40,4 @@ function abort($code = 404) {
     die();
 }
 
-routeToController($uri, $routes);
+routeToController($uri, $routes, $actions);

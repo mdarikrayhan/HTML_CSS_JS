@@ -1,5 +1,5 @@
 <?php
-class User
+class SignUpUser
 {
     private $first_name;
     private $last_name;
@@ -26,13 +26,26 @@ class User
         $this->zipcode = $zipcode;
     }
 
+    public function checkFirstUser()
+    {
+        global $db; // Use the global database instance
+        $query = "SELECT COUNT(*) FROM users";
+        $result = $db->query($query)->fetchAll();
+        return $result[0]['COUNT(*)'] == 0;
+    }
     public function save()
     {
         global $db; // Use the global database instance
         $query = "INSERT INTO users (role, email, password, first_name, last_name, phone, division, district, upazila, zipcode, created_at) 
                   VALUES (:role, :email, :password, :first_name, :last_name, :phone, :division, :district, :upazila, :zipcode, NOW())";
+        $checkFirstUser = $this->checkFirstUser();
+        if ($checkFirstUser) {
+            $role = 'admin';
+        } else {
+            $role = 'user';
+        }
         $params = [
-            ':role' => 'user',
+            ':role' => $role,
             ':email' => $this->email,
             ':password' => password_hash($this->password, PASSWORD_DEFAULT),
             ':first_name' => $this->first_name,
@@ -46,3 +59,4 @@ class User
         $db->query($query, $params);
     }
 }
+

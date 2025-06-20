@@ -2,16 +2,16 @@
 <?php require('partials/nav.php') ?>
 <?php require('partials/banner.php') ?>
 
-<!--
-  This example requires updating your template:
 
-  ```
-  <html class="h-full bg-white">
-  <body class="h-full">
-  ```
--->
 <div class="mx-auto max-w-7xl py-6 sm:px-6 lg:px-8">
-  <form method="POST" class="space-y-8 divide-y divide-gray-200">
+
+  <div class="sm:mx-auto sm:w-full sm:max-w-sm">
+    <img class="mx-auto h-10 w-auto" src="https://tailwindcss.com/plus-assets/img/logos/mark.svg?color=indigo&shade=600"
+      alt="Your Company" />
+    <h2 class="mt-10 text-center text-2xl/9 font-bold tracking-tight text-gray-900">Sign up for your account</h2>
+  </div>
+
+  <form action="/signup" method="POST" class="space-y-8 divide-y divide-gray-200">
     <div class="space-y-12">
       <div class="border-b border-gray-900/10 pb-12">
 
@@ -111,15 +111,16 @@
         </div>
       </div>
 
-
-
-
-      <div class="mt-6 flex items-center justify-end gap-x-6">
-        <button type="button" class="text-sm/6 font-semibold text-gray-900">Cancel</button>
+      <div class="mt-6 flex items-center justify-center gap-x-6">
         <button type="submit"
-          class="rounded-md bg-indigo-600 px-3 py-2 text-sm font-semibold text-white shadow-xs hover:bg-indigo-500 focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-indigo-600">Save</button>
+          class="rounded-md bg-indigo-600 px-6 py-4 text-m font-semibold text-white shadow-xs hover:bg-indigo-500 focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-indigo-600">Sign
+          Up</button>
       </div>
   </form>
+  <p class="mt-10 text-center text-sm/6 text-gray-500">
+      Already a member?
+      <a href="/login" class="font-semibold text-indigo-600 hover:text-indigo-500">Sign in</a>
+    </p>
 </div>
 
 <?php require('partials/footer.php') ?>
@@ -154,7 +155,8 @@
   divisionSelect.addEventListener('change', function () {
     const selectedDivisionId = this.value;
     districtSelect.innerHTML = '<option value="">Select District</option>'; // Reset district options
-    upazilaSelect.innerHTML = '<option value="">Select Upazila</option>';
+    upazilaSelect.innerHTML = '<option value="">Select Upazila</option>'; //Reset upazila options
+    postalCodeSelect.innerHTML = '<option value="">Select Zip Code</option>'; // Reset postal code options
     if (selectedDivisionId) {
       const districts = districtData['districts'].filter(district => district.division_id === selectedDivisionId);
       districts.forEach(district => {

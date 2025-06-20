@@ -10,20 +10,18 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     $upazila = $_POST['upazila'];
     $zipcode = $_POST['zipcode'];
 
-    //print the values for debugging
-    echo "First Name: $first_name\n";
-    echo "Last Name: $last_name\n";
-    echo "Email: $email\n";
-    echo "Password: $password\n";
-    echo "Phone: $phone\n";
-    echo "Division: $division\n";
-    echo "District: $district\n";
-    echo "Upazila: $upazila\n";
-    echo "Zipcode: $zipcode\n";
-
+    // Validate the input data
+    if (empty($first_name) || empty($last_name) || empty($email) || empty($password) || empty($phone) || empty($division) || empty($district) || empty($upazila) || empty($zipcode)) {
+        // Handle the error, e.g., redirect back with an error message
+        header('Location: /signup?error=Please fill in all fields');
+        exit();
+    }
 
     // Create a new User instance
-    $user = new User($first_name, $last_name, $email, $password, $phone, $division, $district, $upazila, $zipcode);
+    $user = new SignUpUser($first_name, $last_name, $email, $password, $phone, $division, $district, $upazila, $zipcode);
     // Save the user to the database
     $user->save();
+    // Redirect to the login page
+    header('Location: /login');
+    exit();
 }

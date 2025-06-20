@@ -8,6 +8,7 @@ return [
         'dbname' => 'binarystore',
         'charset' => 'utf8mb4'
     ],
-
-    //
+    'uploads'=> [
+        'path'=> 'data/uploads/',
+    ]
 ];
