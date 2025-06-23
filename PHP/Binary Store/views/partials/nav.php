@@ -5,7 +5,7 @@
             <div class="flex items-center">
                 <div class="flex-shrink-0">
                     <img class="h-8 w-8"
-                        src="https://tailwindcss.com/plus-assets/img/logos/mark.svg?color=indigo&shade=300"
+                        src="data/uploads/images/logo.svg"
                         alt="Your Company">
                 </div>
                 <div class="hidden md:block">
@@ -33,7 +33,7 @@
 
             <!-- Profile dropdown -->
             <div class="flex items-center justify-center relative ml-3">
-                <a href="<?= isset($_SESSION['user_id']) ? '/user?action=profile' : '/user?action=signin' ?>">
+                <a href="<?= isset($_SESSION['user_id']) ? '/profile' : '/signin' ?>">
                     <button type="button"
                         class="flex max-w-xs items-center rounded-full bg-gray-800 text-sm focus:outline-none focus:ring-2 focus:ring-white focus:ring-offset-2 focus:ring-offset-gray-800"
                         id="user-menu-button" aria-expanded="false" aria-haspopup="true">
@@ -50,8 +50,8 @@
                 <!-- Show Name Beside profile picture -->
                 <div class="hidden md:block ml-2 text-white">
                     <?php if (isset($_SESSION['user_id'])): ?>
-                        <a href="<?= isset($_SESSION['user_id']) ? '/user?action=profile' : '/user?action=signin' ?>"
-                            class="<?= urlIs('/user?action=profile') || urlIs('/user?action=signin') ? 'bg-gray-900 text-white' : 'text-gray-300' ?> hover:bg-gray-700 px-3 py-2 rounded-md text-sm font-medium"><?php echo htmlspecialchars($_SESSION['user_first_name']) . ' ' . htmlspecialchars($_SESSION['user_last_name']); ?></a>
+                        <a href="<?= isset($_SESSION['user_id']) ? '/profile' : '/signin' ?>"
+                            class="<?= urlIs('/profile') || urlIs('/signin') ? 'bg-gray-900 text-white' : 'text-gray-300' ?> hover:bg-gray-700 px-3 py-2 rounded-md text-sm font-medium"><?php echo htmlspecialchars($_SESSION['user_first_name']) . ' ' . htmlspecialchars($_SESSION['user_last_name']); ?></a>
                     <?php endif; ?>
                 </div>
             </div>

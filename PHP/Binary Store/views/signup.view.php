@@ -120,7 +120,7 @@
   </form>
   <p class="mt-10 text-center text-sm/6 text-gray-500">
       Already a member?
-      <a href="/user?action=signin" class="font-semibold text-indigo-600 hover:text-indigo-500">Sign in</a>
+      <a href="/signin" class="font-semibold text-indigo-600 hover:text-indigo-500">Sign in</a>
     </p>
 </div>
 

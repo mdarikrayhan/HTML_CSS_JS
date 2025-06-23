@@ -1,6 +1,8 @@
 <?php
-
-$heading = "Login";
+$uri = parse_url($_SERVER['REQUEST_URI'])['path'];
+// echo "URI: $uri\n";
+// echo "Method: " . $_SERVER['REQUEST_METHOD'] . "\n";
+$heading = "User Management";
 
 if ($_SERVER['REQUEST_METHOD'] === 'POST' && isset($_POST['action'])) {
     if ($_POST['action'] === 'signin') {
@@ -31,6 +33,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST' && isset($_POST['action'])) {
 
             header('Location: /');
             exit();
+
         } else {
             header('Location: /signin?error=Invalid email or password');
             exit();
@@ -52,7 +55,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST' && isset($_POST['action'])) {
         // Validate the input data
         if (empty($first_name) || empty($last_name) || empty($email) || empty($password) || empty($phone) || empty($division) || empty($district) || empty($upazila) || empty($zipcode)) {
             // Handle the error, e.g., redirect back with an error message
-            header('Location: /signup?error=Please fill in all fields');
+            header('Location: /signup&error=Please fill in all fields');
             exit();
         }
 
@@ -61,7 +64,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST' && isset($_POST['action'])) {
         // Save the user to the database
         $user->save($first_name, $last_name, $email, $password, $phone, $division, $district, $upazila, $zipcode);
         // Redirect to the login page
-        header('Location: /user?action=signin');
+        header('Location: /signin');
         exit();
     }
     if ($_POST['action'] === 'logout') {
@@ -71,18 +74,18 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST' && isset($_POST['action'])) {
         exit();
     }
 }
-if ($_SERVER['REQUEST_METHOD'] === 'GET' && isset($_GET['action'])) {
-    if ($_GET['action'] === 'profile') {
+if ($_SERVER['REQUEST_METHOD'] === 'GET' ) {
+    if ($uri === '/profile') {
         // Check if the user is logged in
         if (!isset($_SESSION['user_id'])) {
-            header('Location: /user?action=signin');
+            header('Location: /signin');
             exit();
         }
         // Load the profile view
         require "views/profile.view.php";
         exit();
     }
-    if ($_GET['action'] === 'signin') {
+    if ($uri === '/signin') {
         // If the user is already logged in, redirect to the home page
         if (isset($_SESSION['user_id'])) {
             header('Location: /');
@@ -91,8 +94,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'GET' && isset($_GET['action'])) {
         require "views/signin.view.php";
         exit();
     }
-    if ($_GET['action'] === 'signup') {
-        // If the user is already logged in, redirect to the home page
+    if ($uri === '/signup') {
         if (isset($_SESSION['user_id'])) {
             header('Location: /');
             exit();
@@ -103,5 +105,5 @@ if ($_SERVER['REQUEST_METHOD'] === 'GET' && isset($_GET['action'])) {
 }
 
 
-require "views/signin.view.php";
+//require "views/signin.view.php";
 

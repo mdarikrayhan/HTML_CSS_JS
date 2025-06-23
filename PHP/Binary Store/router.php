@@ -8,7 +8,13 @@ $routes = [
     '/admin/product' => 'controllers/admin/product.php',
     '/category' => 'controllers/category.php',
     '/product' => 'controllers/product.php',
+    
     '/user' => 'controllers/user.php',
+    '/signin' => 'controllers/user.php',
+    '/signup' => 'controllers/user.php',
+    '/logout' => 'controllers/user.php',
+    '/profile' => 'controllers/user.php',
+    
 ];
 
 $actions = [
