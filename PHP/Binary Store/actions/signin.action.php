@@ -9,11 +9,9 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
         exit();
     }
 
-    // Create a new SignInUser instance
-    $user = new SignInUser($email, $password);
-
-    // Call the login method
-    $checkLogin = $user->login();
+    // Create a new User instance
+    $user = new User();
+    $checkLogin = $user->login($email, $password);
     if ($checkLogin) {
         global $db;
         $query = "SELECT * FROM users WHERE email = :email";

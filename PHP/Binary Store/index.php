@@ -6,10 +6,6 @@ $db = new Database($config['database']);
 
 define('ROOT_PATH', dirname(__FILE__) . '/'); // Define the base URL for the application
 
-require 'models/signin.model.php';
-require 'models/signup.model.php';
+require 'models/user.model.php';
 require 'functions.php';
 require 'router.php';
-
-
-

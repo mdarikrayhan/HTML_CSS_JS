@@ -18,9 +18,9 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     }
 
     // Create a new User instance
-    $user = new SignUpUser($first_name, $last_name, $email, $password, $phone, $division, $district, $upazila, $zipcode);
+    $user = new User();
     // Save the user to the database
-    $user->save();
+    $user->save($first_name, $last_name, $email, $password, $phone, $division, $district, $upazila, $zipcode);
     // Redirect to the login page
     header('Location: /login');
     exit();
