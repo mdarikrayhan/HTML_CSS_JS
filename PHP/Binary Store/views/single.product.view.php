@@ -56,9 +56,18 @@
 <script>
   <?php
     global $db;
-    $id = $_GET['id'] ?? null;
+    // /product/single/6 extract the product ID from the URL
+    $uri = $_SERVER['REQUEST_URI'];
+    // Example URI: /product/single/6
+    // Use regex to extract the product ID
+    if (preg_match('/^\/product\/single\/(\d+)$/', $uri, $matches)) {
+        $id = $matches[1];
+    } else {
+        echo "console.error('Invalid product URL');";
+        return;
+    }
 
-    if (isset($_GET['id'])){
+    if (isset($id) && is_numeric($id)) {
         $query = "SELECT * FROM products WHERE id = :id";
         $params = [':id' => $id];
         $product = $db->query($query, $params)->fetch(PDO::FETCH_ASSOC);
@@ -80,7 +89,7 @@
     if (product) {
       // Update image
       const productImage = document.querySelector('.md\\:w-1\\/2 img');
-      productImage.src = '../' + product.image_url || 'https://via.placeholder.com/400';
+      productImage.src = '../../' + product.image_url || 'https://via.placeholder.com/400';
       productImage.alt = product.name;
 
       // Update product name

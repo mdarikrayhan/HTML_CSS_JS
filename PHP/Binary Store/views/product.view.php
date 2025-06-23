@@ -25,29 +25,32 @@
 </div>
 
 
-  
+
 <script>
     <?php
     global $db;
-    //check if there is a id in the URL
-    if (isset($_GET['category_id'])) {
-        $id = $_GET['category_id'];
+    // Check if there is a category_id in the URL
+    $uri = $_SERVER['REQUEST_URI'];
+    // Example URIs:
+    // /product/category/3
+    //get $id from the URL by removing /product/category/ from the start of the URI
+    // and then removing the first part of the URI
+    if (preg_match('/^\/product\/category\/(\d+)$/', $uri, $matches)) {
+        // Category view
+        $categoryId = $matches[1];
+        $id = $categoryId;
         $query = "SELECT * FROM products WHERE category_id = :category_id";
-        $params = [':category_id' => $id];
+        $params = [':category_id' => $categoryId];
         $result = $db->query($query, $params)->fetchAll(PDO::FETCH_ASSOC);
-        // If no products are found, you might want to handle that case
-        if (empty($result)) {
-            echo "console.log('No products found for category ID: $id');";
-        } else {
-            echo "console.log('Products found for category ID: $id');";
-        }
     } else {
-        $id = null;
-        // If no id is provided, fetch all products
+        // Default product listing view
+        $id = null; // No category ID, so set to null
         $query = "SELECT * FROM products";
         $result = $db->query($query)->fetchAll(PDO::FETCH_ASSOC);
+
     }
-    
+
+
     ?>
     //print the id in the console
     console.log("Product ID: <?php echo $id; ?>");
@@ -57,18 +60,18 @@
     products.forEach(product => {
         const productDiv = document.createElement('div');
         productDiv.className = 'group relative';
+        console.log(product);
         productDiv.innerHTML = `
-            <img src="../${product.image_url}" alt="${product.name}"
+            <img src="../../${product.image_url}" alt="${product.name}"
                 class="aspect-square w-full rounded-md bg-gray-200 object-cover group-hover:opacity-75 lg:aspect-auto lg:h-80" />
             <div class="mt-4 flex justify-center">
-                <a href="/product?action=view&id=${product.id}" class="text-sm font-semibold text-gray-900">${product.name}</a>
+                <a href="/product/single/${product.id}" class="text-sm font-semibold text-gray-900">${product.name}</a>
                 <span class="sr-only">,</span>
                 <p class="ml-2 text-sm text-gray-500">${product.description}</p>
             </div>
         `;
         productContainer.appendChild(productDiv);
     });
-
 
 </script>
 

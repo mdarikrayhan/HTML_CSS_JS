@@ -41,7 +41,7 @@
             <img src="../${category.image_url}" alt="${category.name}"
                 class="aspect-square w-full rounded-md bg-gray-200 object-cover group-hover:opacity-75 lg:aspect-auto lg:h-80" />
             <div class="mt-4 flex justify-center">
-                <a href="/product?action=view&category_id=${category.id}" class="text-sm font-semibold text-gray-900">${category.name}</a>
+                <a href="/product/category/${category.id}" class="text-sm font-semibold text-gray-900">${category.name}</a>
                 <span class="sr-only">,</span>
                 <p class="ml-2 text-sm text-gray-500">${category.description}</p>
             </div>
