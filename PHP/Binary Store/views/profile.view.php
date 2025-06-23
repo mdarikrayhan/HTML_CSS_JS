@@ -38,7 +38,8 @@
         </div>
         <!-- Logout -->
         <div class="mt-6">
-            <form method="POST" action="/logout">
+            <form method="POST" action="/user">
+            <input type="hidden" name="action" value="logout">
                 <button type="submit"
                     class="inline-flex items-center rounded-md border border-transparent bg-red-600 px-3 py-2 text-sm/6 font-semibold text-white shadow-sm hover:bg-red-700 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-red-600">
                     Logout

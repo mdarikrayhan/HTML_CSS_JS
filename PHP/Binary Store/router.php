@@ -4,19 +4,15 @@ $uri = parse_url($_SERVER['REQUEST_URI'])['path'];
 
 $routes = [
     '/' => 'controllers/index.php',
-    '/login' => 'controllers/login.php',
-    '/signup' => 'controllers/signup.php',
-    '/profile' => 'controllers/profile.php',
     '/admin/category' => 'controllers/admin/category.php',
     '/admin/product' => 'controllers/admin/product.php',
     '/category' => 'controllers/category.php',
     '/product' => 'controllers/product.php',
+    '/user' => 'controllers/user.php',
 ];
 
 $actions = [
-    '/signup' => 'actions/signup.action.php',
-    '/signin' => 'actions/signin.action.php',
-    '/logout' => 'actions/logout.action.php',
+    '/user' => 'controllers/user.php',
 ];
 
 function routeToController($uri, $routes, $actions)

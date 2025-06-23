@@ -11,7 +11,8 @@
     <h2 class="mt-10 text-center text-2xl/9 font-bold tracking-tight text-gray-900">Sign up for your account</h2>
   </div>
 
-  <form action="/signup" method="POST" class="space-y-8 divide-y divide-gray-200">
+  <form action="/user" method="POST" class="space-y-8 divide-y divide-gray-200">
+  <input type="hidden" name="action" value="signup">
     <div class="space-y-12">
       <div class="border-b border-gray-900/10 pb-12">
 
@@ -119,7 +120,7 @@
   </form>
   <p class="mt-10 text-center text-sm/6 text-gray-500">
       Already a member?
-      <a href="/login" class="font-semibold text-indigo-600 hover:text-indigo-500">Sign in</a>
+      <a href="/user?action=signin" class="font-semibold text-indigo-600 hover:text-indigo-500">Sign in</a>
     </p>
 </div>
 
