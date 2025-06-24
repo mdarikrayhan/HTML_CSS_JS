@@ -82,7 +82,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'GET' ) {
             exit();
         }
         // Load the profile view
-        require "views/profile.view.php";
+        require "views/auth/profile.view.php";
         exit();
     }
     if ($uri === '/signin') {
@@ -91,7 +91,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'GET' ) {
             header('Location: /');
             exit();
         }
-        require "views/signin.view.php";
+        require "views/auth/signin.view.php";
         exit();
     }
     if ($uri === '/signup') {
@@ -99,7 +99,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'GET' ) {
             header('Location: /');
             exit();
         }
-        require "views/signup.view.php";
+        require "views/auth/signup.view.php";
         exit();
     }
 }

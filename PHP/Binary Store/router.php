@@ -6,20 +6,20 @@ $routes = [
     '/' => 'controllers/index.php',
     '/admin/category' => 'controllers/admin/category.php',
     '/admin/product' => 'controllers/admin/product.php',
-    
+
     '/category' => 'controllers/category.php',
     '/product' => 'controllers/product.php',
     '/product/single' => 'controllers/product.php',
     '/product/category' => 'controllers/product.php',
-    
-    '/user' => 'controllers/user.php',
-    '/signin' => 'controllers/user.php',
-    '/signup' => 'controllers/user.php',
-    '/logout' => 'controllers/user.php',
-    '/profile' => 'controllers/user.php',
+
+    '/user' => 'controllers/auth.php',
+    '/signin' => 'controllers/auth.php',
+    '/signup' => 'controllers/auth.php',
+    '/logout' => 'controllers/auth.php',
+    '/profile' => 'controllers/auth.php',
 
 
-    
+
 ];
 function routeToController($uri, $routes)
 {

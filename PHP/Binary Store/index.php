@@ -1,6 +1,6 @@
 <?php
 session_start();// for all the pages to use session variables
-require 'Database.php';
+require 'database.php';
 $config = require('config.php');
 $db = new Database($config['database']);
 

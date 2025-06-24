@@ -1,6 +1,6 @@
-<?php require('partials/head.php') ?>
-<?php require('partials/nav.php') ?>
-<?php require('partials/banner.php') ?>
+<?php require('views/partials/head.php') ?>
+<?php require('views/partials/nav.php') ?>
+<?php require('views/partials/banner.php') ?>
 
 <div class="mx-auto max-w-7xl py-6 sm:px-6 lg:px-8">
   <form action="/user" method="POST">
@@ -123,15 +123,15 @@
   </p>
 </div>
 
-<?php require('partials/footer.php') ?>
+<?php require('views/partials/footer.php') ?>
 
 <script>
   // Load JSON data from PHP
   <?php
-  $divisionData = json_decode(file_get_contents('data/jsonpath/divisions.json'), true);
-  $districtData = json_decode(file_get_contents('data/jsonpath/districts.json'), true);
-  $upazilaData = json_decode(file_get_contents('data/jsonpath/upazilas.json'), true);
-  $postalCodeData = json_decode(file_get_contents('data/jsonpath/postcodes.json'), true);
+  $divisionData = json_decode(file_get_contents('data/json/divisions.json'), true);
+  $districtData = json_decode(file_get_contents('data/json/districts.json'), true);
+  $upazilaData = json_decode(file_get_contents('data/json/upazilas.json'), true);
+  $postalCodeData = json_decode(file_get_contents('data/json/postcodes.json'), true);
 
   echo "const divisionData = " . json_encode($divisionData) . ";\n";
   echo "const districtData = " . json_encode($districtData) . ";\n";
