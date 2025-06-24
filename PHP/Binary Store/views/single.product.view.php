@@ -52,6 +52,15 @@ if (preg_match('/^\/product\/single\/(\d+)$/', $uri, $matches)) {
         </div>
 
         <form class="pt-4">
+          <div class="flex items-center space-x-4">
+            <label for="quantity" class="text-lg font-medium text-gray-700">Quantity:</label>
+            <input type="number" id="quantity" name="quantity" min="1"
+              max="<?= htmlspecialchars($product['quantity']) ?>" value="1"
+              class="w-20 border border-gray-300 rounded-md px-3 py-2 focus:outline-none focus:ring-2 focus:ring-indigo-500">
+          </div>
+          <!-- Space between quantity and button -->
+          <div class="mt-4"></div>
+          
           <button type="submit"
             class="w-full bg-indigo-600 text-white py-3 px-6 rounded-md hover:bg-indigo-700 transition-colors duration-200">
             Checkout Now

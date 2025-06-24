@@ -35,12 +35,12 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
             $imagePath = $targetPath;
             //Save the data to the database
             global $db;
-            $query = "INSERT INTO products (name, description, image_url, users_id, price, quantity, category_id) VALUES (:name, :description, :image_url, :users_id, :price, :quantity, :category_id)";
+            $query = "INSERT INTO products (name, description, image_url, user_id, price, quantity, category_id) VALUES (:name, :description, :image_url, :user_id, :price, :quantity, :category_id)";
             $params = [
                 ':name' => $name,
                 ':description' => $description,
                 ':image_url' => $imagePath,
-                ':users_id' => $usersId,
+                ':user_id' => $usersId,
                 ':price' => $price,
                 ':quantity' => $quantity,
                 ':category_id' => $category
