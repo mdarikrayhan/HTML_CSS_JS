@@ -4,32 +4,38 @@ class Category{
     private $name;
     private $description;
     private $image_url;
-
-    public function __construct($name = '', $description = '', $image_url = '')
+    private $users_id;
+    
+    public function __construct()
     {
-        $this->name = $name;
-        $this->description = $description;
-        $this->image_url = $image_url;
+
     }
 
-    public function getCategoryData()
+    public function getCategoryDataById($id)
     {
-        return [
-            'name' => $this->name,
-            'description' => $this->description,
-            'image_url' => $this->image_url
-        ];
+        global $db;
+        $query = "SELECT * FROM categories WHERE id = :id";
+        $params = [':id' => $id];
+        return $db->query($query, $params)->fetch(PDO::FETCH_ASSOC);
     }
 
-    public function save($name, $description, $image_url)
+    public function getAllCategories()
     {
         global $db; // Use the global database instance
-        $query = "INSERT INTO categories (name, description, image_url, created_at) 
-                  VALUES (:name, :description, :image_url, NOW())";
+        $query = "SELECT * FROM categories";
+        return $db->query($query)->fetchAll(PDO::FETCH_ASSOC);
+    }
+
+    public function createCategory($name, $description, $image_url, $users_id)
+    {
+        global $db; // Use the global database instance
+        $query = "INSERT INTO categories (name, description, image_url, users_id, created_at) 
+                  VALUES (:name, :description, :image_url, :users_id, NOW())";
         $params = [
             ':name' => $name,
             ':description' => $description,
-            ':image_url' => $image_url
+            ':image_url' => $image_url,
+            ':users_id' => $users_id
         ];
         return $db->query($query, $params);
     }

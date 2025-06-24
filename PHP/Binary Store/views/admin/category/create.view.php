@@ -12,26 +12,26 @@
         <form class="space-y-6" action="/admin/category" method="POST" enctype="multipart/form-data">
 
             <div>
-                <label for="category_name" class="block text-sm/6 font-medium text-gray-900">Category Name</label>
+                <label for="name" class="block text-sm/6 font-medium text-gray-900">Category Name</label>
                 <div class="mt-2">
-                    <input type="text" name="category_name" id="category_name" required
+                    <input type="text" name="name" id="name" required
                         class="block w-full rounded-md bg-white px-3 py-1.5 text-base text-gray-900 outline-1 -outline-offset-1 outline-gray-300 placeholder:text-gray-400 focus:outline-2 focus:-outline-offset-2 focus:outline-indigo-600 sm:text-sm/6" />
                 </div>
             </div>
 
             <div>
-                <label for="category_description" class="block text-sm/6 font-medium text-gray-900">Category
+                <label for="description" class="block text-sm/6 font-medium text-gray-900">Category
                     Description</label>
                 <div class="mt-2">
-                    <textarea name="category_description" id="category_description" rows="3" required
+                    <textarea name="description" id="description" rows="3" required
                         class="block w-full rounded-md bg-white px-3 py-1.5 text-base text-gray-900 outline-1 -outline-offset-1 outline-gray-300 placeholder:text-gray-400 focus:outline-2 focus:-outline-offset-2 focus:outline-indigo-600 sm:text-sm/6"></textarea>
                 </div>
             </div>
-            
+
             <div>
-                <label for="category_image" class="block text-sm/6 font-medium text-gray-900">Image Upload</label>
+                <label for="image" class="block text-sm/6 font-medium text-gray-900">Image Upload</label>
                 <div class="mt-2">
-                    <input type="file" name="category_image" id="category_image" required
+                    <input type="file" name="image" id="image" required
                         class="block w-full rounded-md bg-white px-3 py-1.5 text-base text-gray-900 outline-1 -outline-offset-1 outline-gray-300 placeholder:text-gray-400 focus:outline-2 focus:-outline-offset-2 focus:outline-indigo-600 sm:text-sm/6" />
                 </div>
             </div>

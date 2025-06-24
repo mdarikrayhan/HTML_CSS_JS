@@ -12,52 +12,52 @@
         <form class="space-y-6" action="/admin/product" method="POST" enctype="multipart/form-data">
 
             <div>
-                <label for="product_name" class="block text-sm/6 font-medium text-gray-900">Product Name</label>
+                <label for="name" class="block text-sm/6 font-medium text-gray-900">Product Name</label>
                 <div class="mt-2">
-                    <input type="text" name="product_name" id="product_name" required
+                    <input type="text" name="name" id="name" required
                         class="block w-full rounded-md bg-white px-3 py-1.5 text-base text-gray-900 outline-1 -outline-offset-1 outline-gray-300 placeholder:text-gray-400 focus:outline-2 focus:-outline-offset-2 focus:outline-indigo-600 sm:text-sm/6" />
                 </div>
             </div>
 
             <div>
-                <label for="product_description" class="block text-sm/6 font-medium text-gray-900">Product
+                <label for="description" class="block text-sm/6 font-medium text-gray-900">Product
                     Description</label>
                 <div class="mt-2">
-                    <textarea name="product_description" id="product_description" rows="3" required
+                    <textarea name="description" id="description" rows="3" required
                         class="block w-full rounded-md bg-white px-3 py-1.5 text-base text-gray-900 outline-1 -outline-offset-1 outline-gray-300 placeholder:text-gray-400 focus:outline-2 focus:-outline-offset-2 focus:outline-indigo-600 sm:text-sm/6"></textarea>
                 </div>
             </div>
-            
+
             <div>
-                <label for="product_image" class="block text-sm/6 font-medium text-gray-900">Image Upload</label>
+                <label for="image" class="block text-sm/6 font-medium text-gray-900">Image Upload</label>
                 <div class="mt-2">
-                    <input type="file" name="product_image" id="product_image" required
+                    <input type="file" name="image" id="image" required
                         class="block w-full rounded-md bg-white px-3 py-1.5 text-base text-gray-900 outline-1 -outline-offset-1 outline-gray-300 placeholder:text-gray-400 focus:outline-2 focus:-outline-offset-2 focus:outline-indigo-600 sm:text-sm/6" />
                 </div>
             </div>
 
             <div>
-                <label for="product_price" class="block text-sm/6 font-medium text-gray-900">Product Price</label>
+                <label for="price" class="block text-sm/6 font-medium text-gray-900">Product Price</label>
                 <div class="mt-2">
-                    <input type="number" name="product_price" id="product_price" required
+                    <input type="number" name="price" id="price" required
                         class="block w-full rounded-md bg-white px-3 py-1.5 text-base text-gray-900 outline-1 -outline-offset-1 outline-gray-300 placeholder:text-gray-400 focus:outline-2 focus:-outline-offset-2 focus:outline-indigo-600 sm:text-sm/6" />
                 </div>
             </div>
 
             <!-- Quantity -->
             <div>
-                <label for="product_quantity" class="block text-sm/6 font-medium text-gray-900">Product Quantity</label>
+                <label for="quantity" class="block text-sm/6 font-medium text-gray-900">Product Quantity</label>
                 <div class="mt-2">
-                    <input type="number" name="product_quantity" id="product_quantity" required
+                    <input type="number" name="quantity" id="quantity" required
                         class="block w-full rounded-md bg-white px-3 py-1.5 text-base text-gray-900 outline-1 -outline-offset-1 outline-gray-300 placeholder:text-gray-400 focus:outline-2 focus:-outline-offset-2 focus:outline-indigo-600 sm:text-sm/6" />
                 </div>
             </div>
 
             <!-- Category Option-->
             <div>
-                <label for="product_category" class="block text-sm/6 font-medium text-gray-900">Product Category</label>
+                <label for="category" class="block text-sm/6 font-medium text-gray-900">Product Category</label>
                 <div class="mt-2">
-                    <select name="product_category" id="product_category"
+                    <select name="category" id="category"
                         class="block w-full rounded-md bg-white px-3 py-1.5 text-base text-gray-900 outline-1 -outline-offset-1 outline-gray-300 placeholder:text-gray-400 focus:outline-2 focus:-outline-offset-2 focus:outline-indigo-600 sm:text-sm/6">
                         <?php
                         global $db;
