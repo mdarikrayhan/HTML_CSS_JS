@@ -7,10 +7,10 @@ $routes = [
     '/admin/category' => 'controllers/admin/category.php',
     '/admin/product' => 'controllers/admin/product.php',
 
-    '/category' => 'controllers/category.php',
-    '/product' => 'controllers/product.php',
-    '/product/single' => 'controllers/product.php',
-    '/product/category' => 'controllers/product.php',
+    '/category' => 'controllers/user/category.php',
+    '/product' => 'controllers/user/product.php',
+    '/product/single' => 'controllers/user/product.php',
+    '/product/category' => 'controllers/user/product.php',
 
     '/user' => 'controllers/auth.php',
     '/signin' => 'controllers/auth.php',
