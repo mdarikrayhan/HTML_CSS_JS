@@ -3,15 +3,11 @@
 <?php require('views/partials/banner.php') ?>
 
 <?php
-global $db;
-
 // Extract product ID from URL
 $uri = $_SERVER['REQUEST_URI'];
 if (preg_match('/^\/product\/single\/(\d+)$/', $uri, $matches)) {
   $id = (int) $matches[1];
-  $query = "SELECT * FROM products WHERE id = :id";
-  $params = [':id' => $id];
-  $product = $db->query($query, $params)->fetch(PDO::FETCH_ASSOC);
+  $product = (new Product())->getProductById($id);
 
   if (!$product) {
     // Product not found
@@ -58,7 +54,7 @@ if (preg_match('/^\/product\/single\/(\d+)$/', $uri, $matches)) {
         <form class="pt-4">
           <button type="submit"
             class="w-full bg-indigo-600 text-white py-3 px-6 rounded-md hover:bg-indigo-700 transition-colors duration-200">
-            Add to Cart
+            Checkout Now
           </button>
         </form>
       </div>

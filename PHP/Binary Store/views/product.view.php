@@ -9,12 +9,9 @@ global $db;
 $uri = $_SERVER['REQUEST_URI'];
 if (preg_match('/^\/product\/category\/(\d+)$/', $uri, $matches)) {
     $categoryId = $matches[1];
-    $query = "SELECT * FROM products WHERE category_id = :category_id";
-    $params = [':category_id' => $categoryId];
-    $products = $db->query($query, $params)->fetchAll(PDO::FETCH_ASSOC);
+    $products = (new Product())->getProductsByCategoryId($categoryId);
 } else {
-    $query = "SELECT * FROM products";
-    $products = $db->query($query)->fetchAll(PDO::FETCH_ASSOC);
+    $products = (new Product())->getAllProducts();
 }
 
 ?>
