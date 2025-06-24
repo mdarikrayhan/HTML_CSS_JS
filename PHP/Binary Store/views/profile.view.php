@@ -4,10 +4,7 @@
 
 <main>
     <?php
-    global $db;
-    $query = "SELECT * FROM users WHERE id = :id";
-    $params = [':id' => $_SESSION['user_id']];
-    $user = $db->query($query, $params)->fetch(PDO::FETCH_ASSOC);
+    $user = (new User())->getUserDataByID($_SESSION['user_id']);
     //show user profile
     ?>
     <div class="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">

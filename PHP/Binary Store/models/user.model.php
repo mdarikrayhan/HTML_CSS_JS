@@ -15,15 +15,7 @@ class User
 
     public function __construct()
     {
-        $this->first_name = '';
-        $this->last_name = '';
-        $this->email = '';
-        $this->password = '';
-        $this->phone = '';
-        $this->division = '';
-        $this->district = '';
-        $this->upazila = '';
-        $this->zipcode = '';
+
     }
 
     public function login($email, $password)
@@ -40,17 +32,15 @@ class User
         return false; // Login failed
 
     }
-    public function getUserData()
+    public function getUserDataByID($id)
     {
-        return [
-            'email' => $this->email,
-            'password' => $this->password,
-            'phone' => $this->phone,
-            'division' => $this->division,
-            'district' => $this->district,
-            'upazila' => $this->upazila,
-            'zipcode' => $this->zipcode
-        ];
+        global $db;
+        if (!isset($id)) {
+            throw new InvalidArgumentException("Invalid user ID provided.");
+        }
+        $query = "SELECT * FROM users WHERE id = :id";
+        $params = [':id' => $id];
+        return $db->query($query, $params)->fetch();
     }
 
     public function save($first_name, $last_name, $email, $password, $phone, $division, $district, $upazila, $zipcode)
