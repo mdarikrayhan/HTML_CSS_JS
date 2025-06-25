@@ -6,6 +6,7 @@ $routes = [
     '/' => 'controllers/index.php',
     '/admin/category' => 'controllers/admin/category.php',
     '/admin/product' => 'controllers/admin/product.php',
+    '/admin/order' => 'controllers/admin/order.php',
 
     '/category' => 'controllers/user/category.php',
 
