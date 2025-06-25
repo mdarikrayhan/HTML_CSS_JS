@@ -3,27 +3,27 @@
 $uri = parse_url($_SERVER['REQUEST_URI'])['path'];
 
 $routes = [
-    '/' => 'controllers/index.php',
-    '/admin/category' => 'controllers/admin/category.php',
-    '/admin/product' => 'controllers/admin/product.php',
-    '/admin/order' => 'controllers/admin/order.php',
+    '/' => 'app/controllers/index.php',
+    '/admin/category' => 'app/controllers/admin/category.php',
+    '/admin/product' => 'app/controllers/admin/product.php',
+    '/admin/order' => 'app/controllers/admin/order.php',
 
-    '/category' => 'controllers/user/category.php',
+    '/category' => 'app/controllers/user/category.php',
 
-    '/product' => 'controllers/user/product.php',
-    '/product/single' => 'controllers/user/product.php',
-    '/product/category' => 'controllers/user/product.php',
+    '/product' => 'app/controllers/user/product.php',
+    '/product/single' => 'app/controllers/user/product.php',
+    '/product/category' => 'app/controllers/user/product.php',
 
-    '/order' => 'controllers/user/order.php',
+    '/order' => 'app/controllers/user/order.php',
 
 
-    '/user' => 'controllers/auth.php',
-    '/user/checkout' => 'controllers/user/checkout.php',
-    '/user/cart' => 'controllers/user/cart.php',
-    '/signin' => 'controllers/auth.php',
-    '/signup' => 'controllers/auth.php',
-    '/logout' => 'controllers/auth.php',
-    '/profile' => 'controllers/auth.php',
+    '/user' => 'app/controllers/auth.php',
+    '/user/checkout' => 'app/controllers/user/checkout.php',
+    '/user/cart' => 'app/controllers/user/cart.php',
+    '/signin' => 'app/controllers/auth.php',
+    '/signup' => 'app/controllers/auth.php',
+    '/logout' => 'app/controllers/auth.php',
+    '/profile' => 'app/controllers/auth.php',
 
 
 
@@ -53,7 +53,7 @@ function abort($code = 404)
 {
     http_response_code($code);
 
-    require "views/{$code}.php";
+    require "app/views/{$code}.php";
 
     die();
 }
