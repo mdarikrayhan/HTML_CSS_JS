@@ -8,11 +8,17 @@ $routes = [
     '/admin/product' => 'controllers/admin/product.php',
 
     '/category' => 'controllers/user/category.php',
+
     '/product' => 'controllers/user/product.php',
     '/product/single' => 'controllers/user/product.php',
     '/product/category' => 'controllers/user/product.php',
 
+    '/order' => 'controllers/user/order.php',
+
+
     '/user' => 'controllers/auth.php',
+    '/user/checkout' => 'controllers/user/checkout.php',
+    '/user/cart' => 'controllers/user/cart.php',
     '/signin' => 'controllers/auth.php',
     '/signup' => 'controllers/auth.php',
     '/logout' => 'controllers/auth.php',

@@ -4,9 +4,7 @@
 
             <div class="flex items-center">
                 <div class="flex-shrink-0">
-                    <img class="h-8 w-8"
-                        src="../../data/uploads/images/logo.svg"
-                        alt="Your Company">
+                    <img class="h-8 w-8" src="../../data/uploads/images/logo.svg" alt="Your Company">
                 </div>
                 <div class="hidden md:block">
                     <div class="ml-10 flex items-baseline space-x-4">
@@ -20,13 +18,18 @@
                                 class="<?= urlIs('/admin/category') ? 'bg-gray-900 text-white' : 'text-gray-300' ?> hover:bg-gray-700 hover:text-white px-3 py-2 rounded-md text-sm font-medium">Category</a>
                             <a href="/admin/product"
                                 class="<?= urlIs('/admin/product') ? 'bg-gray-900 text-white' : 'text-gray-300' ?> hover:bg-gray-700 hover:text-white px-3 py-2 rounded-md text-sm font-medium">Product</a>
+                            <a href="/admin/order"
+                                class="<?= urlIs('/admin/order') ? 'bg-gray-900 text-white' : 'text-gray-300' ?> hover:bg-gray-700 hover:text-white px-3 py-2 rounded-md text-sm font-medium">Order</a>
+                        
                         <?php else: ?>
-                                <a href="/category"
-                                    class="<?= urlIs('/category') ? 'bg-gray-900 text-white' : 'text-gray-300' ?> hover:bg-gray-700 hover:text-white px-3 py-2 rounded-md text-sm font-medium">Category</a>
+                            <a href="/category"
+                                class="<?= urlIs('/category') ? 'bg-gray-900 text-white' : 'text-gray-300' ?> hover:bg-gray-700 hover:text-white px-3 py-2 rounded-md text-sm font-medium">Category</a>
                             <a href="/product"
                                 class="<?= urlIs('/product') ? 'bg-gray-900 text-white' : 'text-gray-300' ?> hover:bg-gray-700 hover:text-white px-3 py-2 rounded-md text-sm font-medium">Product</a>
+                            <a href="/order"
+                                class="<?= urlIs('/order') ? 'bg-gray-900 text-white' : 'text-gray-300' ?> hover:bg-gray-700 hover:text-white px-3 py-2 rounded-md text-sm font-medium">Order</a>
                         <?php endif; ?>
-                    
+
                     </div>
                 </div>
             </div>

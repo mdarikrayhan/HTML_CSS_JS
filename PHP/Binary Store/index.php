@@ -9,6 +9,7 @@ define('ROOT_PATH', dirname(__FILE__) . '/'); // Define the base URL for the app
 require 'models/user.model.php';
 require 'models/category.model.php';
 require 'models/product.model.php';
+require 'models/order.model.php';
 
 require 'functions.php';
 require 'router.php';

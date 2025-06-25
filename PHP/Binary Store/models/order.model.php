@@ -1,7 +1,8 @@
-<?php 
-class Order{
+<?php
+class Order
+{
 
-    private $product_id;
+    private $id;
     private $user_id;
     private $order_status;
     private $cost;
@@ -34,7 +35,7 @@ class Order{
         $query = "SELECT * FROM orders";
         return $db->query($query)->fetchAll(PDO::FETCH_ASSOC);
     }
-    public function getOrderByUserId($user_id)
+    public function getOrdersByUserId($user_id)
     {
         global $db;
         $query = "SELECT * FROM orders WHERE user_id = :user_id";

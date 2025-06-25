@@ -51,7 +51,7 @@ if (preg_match('/^\/product\/single\/(\d+)$/', $uri, $matches)) {
           <p><?= htmlspecialchars($product['description']) ?></p>
         </div>
 
-        <form class="pt-4">
+        <form class="pt-4" action="/user/checkout" method="POST">
           <div class="flex items-center space-x-4">
             <label for="quantity" class="text-lg font-medium text-gray-700">Quantity:</label>
             <input type="number" id="quantity" name="quantity" min="1"
@@ -60,7 +60,14 @@ if (preg_match('/^\/product\/single\/(\d+)$/', $uri, $matches)) {
           </div>
           <!-- Space between quantity and button -->
           <div class="mt-4"></div>
-          
+          <!-- Checkout Button -->
+          <input type="hidden" name="id" value="<?= htmlspecialchars($product['id']) ?>">
+          <input type="hidden" name="name" value="<?= htmlspecialchars($product['name']) ?>">
+          <input type="hidden" name="price" value="<?= htmlspecialchars($product['price']) ?>">
+          <input type="hidden" name="image" value="<?= htmlspecialchars($product['image_url']) ?>">
+          <input type="hidden" name="action" value="checkout">
+          <input type="hidden" name="user_id" value="<?= htmlspecialchars($_SESSION['user_id']) ?>">
+
           <button type="submit"
             class="w-full bg-indigo-600 text-white py-3 px-6 rounded-md hover:bg-indigo-700 transition-colors duration-200">
             Checkout Now
